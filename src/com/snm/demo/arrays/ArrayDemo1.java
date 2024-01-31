@@ -1,4 +1,4 @@
-//1(L1).Write a Java program to sort a numeric array and a string array
+//1(L1).Write a Java program to sort a numeric array and a string array.
 
 package com.snm.demo.arrays;
 
