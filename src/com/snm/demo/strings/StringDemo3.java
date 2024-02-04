@@ -1,11 +1,11 @@
 /*
-Write a Java program to compare two strings lexicographically. Two strings are lexicographically equal if they are the same length and contain the same characters in the same positions.
- */
+Write a Java program to compare two strings lexicographically, ignoring case differences
+*/
 package com.snm.demo.strings;
 
 import java.util.Scanner;
 
-public class StringDemo2 {
+public class StringDemo3 {
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
         System.out.println("Enter your First string: ");
@@ -26,14 +26,16 @@ public class StringDemo2 {
     }
 
     private static int compare(String str1, String str2) {
-        int minLength = Math.min(str1.length(), str2.length());
+        String lStr1 = str1.toLowerCase();
+        String lStr2 = str2.toLowerCase();
+        int minLength = Math.min(lStr1.length(), lStr2.length());
 
         for(int i = 0; i < minLength; i++) {
-            int result = Character.compare(str1.charAt(i), str2.charAt(i));
+            int result = Character.compare(lStr1.charAt(i), lStr2.charAt(i));
             if(result != 0){
                 return result;
             }
         }
-        return Integer.compare(str1.length(), str2.length());
+        return Integer.compare(lStr1.length(), lStr2.length());
     }
 }
