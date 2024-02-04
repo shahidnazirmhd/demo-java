@@ -13,6 +13,7 @@ public class ArrayDemo6 {
         System.out.print("Enter array length: ");
         int len = scan.nextInt();
         int[] arr = new int[len];
+        System.out.println("Enter array values: ");
         for (int i = 0; i < len; i++) {
             arr[i] = scan.nextInt();
         }
