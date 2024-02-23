@@ -20,6 +20,20 @@ public class CollectionDemo6 {
 
     System.out.println(A);
 
+    // Reverse
+    Collections.reverse(A);
+
+    System.out.println(A);
+    System.out.println(A.size());
+
+    for (int i = 0; i < A.size(); i++) {
+      System.out.print(A.get(i));
+      if (i < A.size() - 1) {
+        System.out.print(" ");
+      }
+    }
+    System.out.println();
+
     // Ascending
     // Collections.sort(A);
     A.sort(Comparator.naturalOrder());
