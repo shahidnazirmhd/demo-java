@@ -12,7 +12,8 @@ public class StartCabApp {
       System.out.println();
       System.out.println("1. Book Cab");
       System.out.println("2. Cab details");
-      System.out.println("3. Quit");
+      System.out.println("3. Admin");
+      System.out.println("4. Quit");
       System.out.println();
       System.out.println("Please choose a service: ");
       choice = scan.nextInt();
@@ -21,14 +22,25 @@ public class StartCabApp {
           BookingService.getInstance().book();
           break;
         case 2:
-          BookingService.getInstance().printCabDetails();
+          BookingService.getInstance().printCabDetails(false);
           break;
         case 3:
+          System.out.println("Enter username: ");
+          String uname = scan.next();
+          System.out.println("Enter password: ");
+          String upass = scan.next();
+          if(!uname.equals("admin") && upass.equals("adminpassword")) {
+            System.out.println("Invalid Credential. Try again!");
+            break;
+          }
+          BookingService.getInstance().printCabDetails(true);
+          break;
+        case 4:
           System.out.println("Exiting...");
           break;
         default:
           System.out.println("Invalid choice! TRY AGAIN");
       }
-    } while (choice != 3);
+    } while (choice != 4);
   }
 }

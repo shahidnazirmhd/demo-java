@@ -91,7 +91,9 @@ public class BookingService {
             + bookedCab.getId()
             + " is booked. It is "
             + minDistance
-            + "KM away from your point");
+            + "KM away from your point. I will arrive by "
+    + pTime + ".");
+    System.out.println("Your fare is " + fare);
   }
 
   private int getTimeOf(String name) {
@@ -120,5 +122,10 @@ public class BookingService {
     return point;
   }
 
-  public void printCabDetails() {}
+  public void printCabDetails(boolean isAdmin) {
+    CabService.getInstance().printAllCabDetails(isAdmin);
+    if (isAdmin) {
+      CabService.getInstance().printAllRideDetails();
+    }
+  }
 }
