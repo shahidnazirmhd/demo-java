@@ -53,18 +53,45 @@ public class BookingService {
 
   private void bookCab(
       Customer customer, List<Cab> availableCabs, int pTime, char pPoint, char dPoint) {
-    int min = Integer.MAX_VALUE;
+    int minDistance = Integer.MAX_VALUE;
     Cab bookedCab = null;
     for (Cab cab : availableCabs) {
       int distanceOfCab = Math.abs((cab.getCurrentLocation() - '0') - (pPoint - '0')) * 15;
-      if (distanceOfCab < min) {
+      if (distanceOfCab < minDistance) {
         bookedCab = cab;
-        min = distanceOfCab;
+        minDistance = distanceOfCab;
       }
     }
+
+    int rideDistance = Math.abs((dPoint - '0') - (pPoint - '0')) * 15;
+    double fare = ((rideDistance - 5) * 10) + 100;
+    int dTime = pTime + rideDistance / 15;
+
+    bookedCab.setCurrentLocation(dPoint);
+    bookedCab.setFreeTime(dTime);
+    bookedCab.setTotalEarnings(bookedCab.getTotalEarnings() + fare);
+
+    Ride thisRide =
+        new Ride(
+            customer,
+            bookedCab.getId(),
+            minDistance,
+            rideDistance,
+            fare,
+            pTime,
+            dTime,
+            pPoint,
+            dPoint);
+
+    bookedCab.addlRide(thisRide);
+
     System.out.println("Hi! " + customer.getName());
     System.out.println(
-        "Cab " + bookedCab.getId() + " is booked. It is " + min + "KM away from your point");
+        "Cab "
+            + bookedCab.getId()
+            + " is booked. It is "
+            + minDistance
+            + "KM away from your point");
   }
 
   private int getTimeOf(String name) {

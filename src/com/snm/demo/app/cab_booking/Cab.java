@@ -9,7 +9,7 @@ public class Cab {
   private char currentLocation;
   private int freeTime;
   private double totalEarnings;
-  private List<Ride> totalRide;
+  private final List<Ride> totalRide;
 
   public Cab(char initialLocation, int availableTime) {
     cabCount += 1;
@@ -60,7 +60,7 @@ public class Cab {
     return totalRide;
   }
 
-  public void setTotalRide(List<Ride> totalRide) {
-    this.totalRide = totalRide;
+  public void addlRide(Ride ride) {
+    this.totalRide.add(ride);
   }
 }
