@@ -49,8 +49,24 @@ public class Ride {
     return customer;
   }
 
-  public Cab getCab() {
-    return cab;
+  public int getCabId() {
+    return cabId;
+  }
+
+  public int getpTime() {
+    return pTime;
+  }
+
+  public int getdTime() {
+    return dTime;
+  }
+
+  public char getpPoint() {
+    return pPoint;
+  }
+
+  public char getdPoint() {
+    return dPoint;
   }
 
   public int getDistanceOfCabFromCustomer() {
