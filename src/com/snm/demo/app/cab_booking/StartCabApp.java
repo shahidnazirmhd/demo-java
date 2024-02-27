@@ -8,7 +8,7 @@ public class StartCabApp {
     System.out.println("WELCOME TO SHALA CABS");
     int choice;
     do {
-      System.out.println("Hello!");
+      System.out.println("\nHello!");
       System.out.println();
       System.out.println("1. Book Cab");
       System.out.println("2. Cab details");
@@ -29,7 +29,7 @@ public class StartCabApp {
           String uname = scan.next();
           System.out.println("Enter password: ");
           String upass = scan.next();
-          if(!uname.equals("admin") && upass.equals("adminpassword")) {
+          if (!uname.equals("admin") && upass.equals("adminpassword")) {
             System.out.println("Invalid Credential. Try again!");
             break;
           }

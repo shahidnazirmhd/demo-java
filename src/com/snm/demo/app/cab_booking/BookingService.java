@@ -44,7 +44,7 @@ public class BookingService {
     }
 
     List<Cab> availableCabs = CabService.getInstance().getAvailableCabs(pTime, pPoint);
-    if (availableCabs == null) {
+    if (availableCabs.isEmpty()) {
       System.out.println("There are no cabs available now.");
       return;
     }
@@ -91,9 +91,12 @@ public class BookingService {
             + bookedCab.getId()
             + " is booked. It is "
             + minDistance
-            + "KM away from your point. I will arrive by "
-    + pTime + ".");
+            + "KM away from your point. Cab will arrive by "
+            + pTime
+            + ".");
     System.out.println("Your fare is " + fare);
+    System.out.println("Your booking Id: " + thisRide.getId());
+    System.out.println("Happy journey!\n");
   }
 
   private int getTimeOf(String name) {
