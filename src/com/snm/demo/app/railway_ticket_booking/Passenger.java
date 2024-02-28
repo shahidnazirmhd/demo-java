@@ -7,18 +7,18 @@ public class Passenger {
   private final int age;
   private final Gender gender;
   private final long mobileNo;
-  private final String prefferedBerth;
+  private final String preferredBerth;
   private String allotedberth;
   private int seatNo;
 
-  public Passenger(String name, int age, Gender gender, long mobileNo, String prefferedBerth) {
+  public Passenger(String name, int age, Gender gender, long mobileNo, String preferredBerth) {
     countOfPassengerUsingApp += 1;
     this.id = countOfPassengerUsingApp;
     this.name = name;
     this.age = age;
     this.gender = gender;
     this.mobileNo = mobileNo;
-    this.prefferedBerth = prefferedBerth;
+    this.preferredBerth = preferredBerth;
   }
 
   public static int getCountOfPassengerUsingApp() {
@@ -45,8 +45,8 @@ public class Passenger {
     return mobileNo;
   }
 
-  public String getPrefferedBerth() {
-    return prefferedBerth;
+  public String getPreferredBerth() {
+    return preferredBerth;
   }
 
   public String getAllotedberth() {
